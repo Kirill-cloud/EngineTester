@@ -9,6 +9,6 @@ namespace EngineTester
     interface IEngine : ITemperaturable
     {
         public Task<bool> Start();
-        public bool Stop();
+        public Task<bool> Stop();
     }
 }

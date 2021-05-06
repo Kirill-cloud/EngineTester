@@ -36,9 +36,15 @@ namespace EngineTester
             return true;
         }
 
-        public bool Stop()
+        public async Task<bool> Stop()
         {
             isStoped = true;
+            while (isStoped)
+            {
+                Cool();
+                
+                await Task.Delay(1);
+            }
             return true;
         }
 
