@@ -12,15 +12,18 @@ namespace EngineTester
         {
             return engine.Temperature < engine.MaxTemperature;
         }
+        //double ModalTime = 0.5; //время в секундах ме
         public async Task<double> StartTest(IEngine engine) 
         {
+
             double time = 0;
-            engine.Start();
+            engine.Start(); 
+
             while (Test(engine))
             {
-                time++;
-                await Task.Delay(1000);
-                Console.WriteLine(time +" "+engine.Temperature);
+                time+=0.5;
+                await Task.Delay(1);
+                Console.WriteLine("Температура двигателя на "+time +"c : "+engine.Temperature);
             }
             engine.Stop();
             return time;

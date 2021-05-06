@@ -9,13 +9,14 @@ namespace EngineTester
 
         static void Main(string[] args)
         {
-            StartTest();
+            double x = StartTest().Result;
+            Console.WriteLine("Двигатель перегрелся за {0} секунд",x);
             Console.ReadKey();
         }
 
-        async static Task StartTest() 
+        async static Task<double> StartTest() 
         {
-            await tester.StartTest();
+            return await tester.StartTest();
         }
     }
 }
